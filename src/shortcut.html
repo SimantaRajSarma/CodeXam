@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="mousetrap.js"></script>
+</head>
+<body>
+  <h1>Keyboard Shortcuts</h1>
+  <ul id="shortcut-list">
+    <li>Ctrl + S: Save</li>
+    <li>Ctrl + Z: Undo</li>
+    <li>Ctrl + Y: Redo</li>
+  </ul>
+
+  <script>
+  Mousetrap.bind('ctrl+s', function() {
+  // Save action
+  console.log('Save');
+  // Perform save logic here
+});
+
+Mousetrap.bind('ctrl+z', function() {
+  // Undo action
+  console.log('Undo');
+  // Perform undo logic here
+});
+
+Mousetrap.bind('ctrl+y', function() {
+  // Redo action
+  console.log('Redo');
+  // Perform redo logic here
+});
+
+ </script>
+</body>
+</html>

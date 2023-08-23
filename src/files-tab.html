@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Code Editor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #editor-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #menu-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+        }
+
+        #menu-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #menu-bar ul li {
+            margin-right: 10px;
+        }
+
+        #menu-bar ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        #tab-bar {
+            background-color: #f1f1f1;
+            padding: 5px;
+        }
+
+        #tab-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #tab-bar ul li {
+            margin-right: 10px;
+            padding: 5px;
+            cursor: pointer;
+            background-color: #ddd;
+            border-radius: 4px 4px 0 0;
+        }
+
+        #tab-bar ul li.active {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #editor {
+            flex: 1;
+            background-color: #fff;
+        }
+
+        #editor-content {
+            padding: 20px;
+            display: none;
+        }
+
+        #editor-content.active {
+            display: block;
+        }
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="editor-container">
+        <div id="menu-bar">
+            <ul>
+                <li><a href="#">File</a></li>
+                <li><a href="#">Edit</a></li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </div>
+        <div id="tab-bar">
+            <ul id="tab-list"></ul>
+        </div>
+        <div id="editor"></div>
+    </div>
+
+    <!-- Include any necessary libraries or scripts here -->
+
+    <script>
+        const tabList = document.getElementById('tab-list');
+        const editorContainer = document.getElementById('editor');
+        const tabs = [];
+
+        // Open a new file
+        function openFile(filename, content) {
+            const tab = document.createElement('li');
+            tab.textContent = filename;
+            tab.addEventListener('click', () => {
+                setActiveTab(tab);
+            });
+            tabList.appendChild(tab);
+            tabs.push({ tab, content });
+
+            if (tabs.length === 1) {
+                setActiveTab(tab);
+            }
+        }
+
+        // Set active tab
+        function setActiveTab(tab) {
+            tabs.forEach((tabItem) => {
+                if (tabItem.tab === tab) {
+                    tabItem.tab.classList.add('active');
+                    editorContainer.innerHTML = '';
+                    const content = document.createElement('div');
+                    content.classList.add('active');
+                    content.id = 'editor-content';
+                    content.innerHTML = '<pre>' + tabItem.content + '</pre>';
+                    editorContainer.appendChild(content);
+                } else {
+                    tabItem.tab.classList.remove('active');
+                }
+            });
+        }
+
+        // Example usage
+        openFile('script.js', 'console.log("Hello, world!");');
+        openFile('style.css', 'body { color: red; }');
+    </script>
+</body>
+</html>

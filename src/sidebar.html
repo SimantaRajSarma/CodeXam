@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>File Explorer Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        .folder {
+            color: #ccc;
+        }
+        
+        .file {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>File Explorer</h2>
+        <ul id="file-tree">
+            <li class="folder">Folder 1
+                <ul>
+                    <li class="file">File 1</li>
+                    <li class="file">File 2</li>
+                </ul>
+            </li>
+            <li class="folder">Folder 2
+                <ul>
+                    <li class="folder">Subfolder
+                        <ul>
+                            <li class="file">File 3</li>
+                            <li class="file">File 4</li>
+                        </ul>
+                    </li>
+                    <li class="file">File 5</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

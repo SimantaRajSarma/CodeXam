@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>VSCode Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+        }
+
+        #sidebar-header {
+            padding: 20px;
+            background-color: #222;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        #sidebar-icons {
+            padding: 10px;
+        }
+
+        .sidebar-icon {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .sidebar-icon:hover {
+            background-color: #444;
+        }
+
+        .sidebar-icon i {
+            margin-right: 10px;
+        }
+
+        .sidebar-icon-text {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div id="sidebar-header">
+            VSCode
+        </div>
+        <div id="sidebar-icons">
+            <div class="sidebar-icon">
+                <i class="fa fa-rocket"></i>
+                <span class="sidebar-icon-text">Extensions</span>
+            </div>
+            <div class="sidebar-icon">
+                <i class="fa fa-cog"></i>
+                <span class="sidebar-icon-text">Settings</span>
+            </div>
+            <!-- Add more icons as needed -->
+        </div>
+    </div>
+
+    <!-- Include the Font Awesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Code Debugger</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #editor {
+            height: 400px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        #output {
+            height: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .debug-button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="editor" contenteditable="true">
+        <!-- Place your code here -->
+        <h1>Hello, World!</h1>
+        <script>
+            // Example JavaScript code
+            function greet(name) {
+                console.log('Hello, ' + name + '!');
+            }
+
+            greet('John');
+        </script>
+    </div>
+
+    <button class="debug-button" onclick="debugCode()">Debug</button>
+
+    <div id="output"></div>
+
+    <script>
+        function debugCode() {
+            // Clear output
+            var output = document.getElementById('output');
+            output.innerHTML = '';
+
+            // Get code from the editor
+            var editor = document.getElementById('editor');
+            var code = editor.innerHTML;
+
+            try {
+                // Execute the code
+                eval(code);
+            } catch (error) {
+                // Display any errors in the output
+                output.innerHTML = '<pre>Error: ' + error.message + '</pre>';
+            }
+        }
+    </script>
+</body>
+</html>

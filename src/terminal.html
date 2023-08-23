@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Terminal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+        }
+        
+        #terminal-container {
+            width: 100%;
+            height: 400px;
+            background-color: #000;
+            color: #fff;
+            overflow-y: auto;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+        }
+        
+        #command-input {
+            width: 100%;
+            background-color: #000;
+            border: none;
+            color: #fff;
+            font-family: monospace;
+            outline: none;
+        }
+
+        #prompt {
+            color: #0ff;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal-container"></div>
+    <div id="prompt">
+        <span id="username"></span>@<span id="hostname"></span>~$
+        <input id="command-input" type="text" autofocus />
+    </div>
+
+    <script>
+        const terminalContainer = document.getElementById('terminal-container');
+        const commandInput = document.getElementById('command-input');
+        const usernameElement = document.getElementById('username');
+        const hostnameElement = document.getElementById('hostname');
+
+        // Random username and hostname
+        const username = generateRandomUsername();
+        const hostname = 'kali'; // Replace with your desired hostname
+
+        usernameElement.textContent = username;
+        hostnameElement.textContent = hostname;
+
+        commandInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const command = commandInput.value;
+                executeCommand(command);
+                commandInput.value = '';
+            }
+        });
+
+        function executeCommand(command) {
+            const output = document.createElement('p');
+            output.textContent = '> ' + command;
+            terminalContainer.appendChild(output);
+            terminalContainer.scrollTop = terminalContainer.scrollHeight;
+
+            // Perform command execution logic here
+            // You can simulate command execution by adding additional output elements
+        }
+
+        function generateRandomUsername() {
+            const usernames = ['root', 'admin', 'user', 'guest'];
+            const randomIndex = Math.floor(Math.random() * usernames.length);
+            return usernames[randomIndex];
+        }
+    </script>
+</body>
+</html>
