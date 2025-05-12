@@ -2,7 +2,7 @@
 it's a practical coding exam for college, universities to conduct their practical exams. feel free to contribute :). 
 
 
-#Gemini Prompt
+# Gemini Prompt
 
 Hi, I want to build a product for colleges and universities to conduct practical exams efficiently and securely by building a product where students can write code, compile, and submit their practical exam paper easily without doing any cheating
 the FLOW:
